@@ -5,15 +5,15 @@
 }
 
 :root {
-  --primary-color: #c1801f;
-  --secondary-color: #694611;
-  --text-color: #fff3b0;
-  --buttons-color: #9e2a2b;
+  --primary-color: #a19b91;
+  --secondary-color: #6e604a;
+  --text-color: #24231f;
+  --buttons-color: #a63e40;
 }
 body {
   font-family: Arial, sans-serif;
   margin: 0;
-  background-color: var(--text-color);
+  background-color: rgb(244, 232, 208);
   color: var(--text-color);
 }
 header {
@@ -23,6 +23,7 @@ header {
   padding: 20px;
   margin-bottom: 30px;
   background-color: var(--secondary-color);
+  box-shadow: 0 0 10px #000000;
 }
 main {
   display: flex;
@@ -33,7 +34,7 @@ main {
 
 .catalog {
   flex: 1;
-  background-color: var(--secondary-color);
+  /* background-color: var(--secondary-color);*/
   margin-left: 20px;
   padding: 20px;
   border-radius: 8px;
@@ -44,9 +45,18 @@ main {
   flex: 1;
   max-height: 550px;
   overflow-y: auto;
-  background-color: var(--secondary-color);
+  background-color: var(--primary-color);
   padding: 20px;
   border-radius: 8px;
+  box-shadow: 0 0 10px #000000;
+}
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  gap: 10px;
 }
 
 .products-grid {
@@ -59,7 +69,7 @@ main {
   background-color: var(--primary-color);
   border-radius: 8px;
   padding: 15px;
-
+  box-shadow: 0 0 10px #000000;
   margin: 20px;
 }
 .product-card img {
@@ -99,4 +109,5 @@ footer {
   margin-top: 20px;
   padding: 20px;
   background-color: var(--secondary-color);
+  box-shadow: 0 0 10px #000000;
 }
