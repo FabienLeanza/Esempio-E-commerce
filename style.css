@@ -42,11 +42,13 @@ main {
 }
 .cart {
   flex: 1;
-  height: 200px;
+  max-height: 550px;
+  overflow-y: auto;
   background-color: var(--secondary-color);
   padding: 20px;
   border-radius: 8px;
 }
+
 .products-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -84,4 +86,17 @@ button {
 .price {
   font-weight: bold;
   margin: 10px 0;
+}
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+footer {
+  height: 100px;
+  text-align: center;
+  margin-top: 20px;
+  padding: 20px;
+  background-color: var(--secondary-color);
 }

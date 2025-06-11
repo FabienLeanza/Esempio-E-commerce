@@ -86,3 +86,72 @@ function mostraProdotti() {
 mostraProdotti();
 
 // AGGIUNGI UN LIBRO AL CARRELLO
+function aggiungiAlCarrello(id) {
+  const libro = libri.find((l) => l.id === id);
+  if (!libro) return;
+
+  const libroNelCarrello = carrello.find((item) => item.id === id);
+
+  if (libroNelCarrello) {
+    libroNelCarrello.quantita += 1;
+  } else {
+    carrello.push({
+      ...libro,
+      quantita: 1,
+    });
+  }
+
+  aggiornaCarrello();
+}
+
+// Aggiorna la visualizzazione del carrello
+function aggiornaCarrello() {
+  cartItemsContainer.innerHTML = "";
+  let totale = 0;
+
+  if (carrello.length === 0) {
+    cartItemsContainer.innerHTML = "<p>Il carrello è vuoto</p>";
+    totalPriceElement.textContent = `Totale: 0.00 €`;
+    return;
+  }
+
+  carrello.forEach((libro) => {
+    const subtotale = libro.prezzo * libro.quantita;
+    const itemHTML = `
+      <div class="cart-item">
+        <span>${libro.titolo}</span>
+        <div class="cart-item-controls">
+          <button onclick="modificaQuantita(${libro.id}, -1)">-</button>
+          <span>${libro.quantita}</span>
+          <button onclick="modificaQuantita(${libro.id}, 1)">+</button>
+        </div>
+        <span>${subtotale.toFixed(2)} €</span>
+        <button onclick="rimuoviDalCarrello(${libro.id})">Rimuovi</button>
+      </div>
+    `;
+    cartItemsContainer.innerHTML += itemHTML;
+    totale += subtotale;
+  });
+
+  totalPriceElement.textContent = `Totale: ${totale.toFixed(2)} €`;
+}
+
+// Modificare la quantità
+function modificaQuantita(id, delta) {
+  const libroNelCarrello = carrello.find((item) => item.id === id);
+  if (!libroNelCarrello) return;
+
+  libroNelCarrello.quantita += delta;
+
+  if (libroNelCarrello.quantita <= 0) {
+    rimuoviDalCarrello(id);
+  } else {
+    aggiornaCarrello();
+  }
+}
+
+// Rimuovi un libro dal carrello
+function rimuoviDalCarrello(id) {
+  carrello = carrello.filter((l) => l.id !== id);
+  aggiornaCarrello();
+}
