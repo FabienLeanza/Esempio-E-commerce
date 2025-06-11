@@ -20,7 +20,7 @@ const libri = [
   },
   {
     id: 3,
-    titolo: "Alice nel paese delle meraviglie",
+    titolo: "Alice nel Paese delle Meraviglie",
     autore: "Lewis Carroll",
     prezzo: 99.9,
     anno: 1951,
@@ -31,6 +31,7 @@ const libri = [
     id: 4,
     titolo: "Dracula",
     autore: "Bram Stocker",
+    anno: 1897,
     prezzo: 134.9,
     immagine: "assets/dracula.webp",
     inStock: true,
@@ -39,6 +40,7 @@ const libri = [
     id: 5,
     titolo: "La Divina Commedia",
     autore: "Dante Alighieri",
+    anno: 1305,
     prezzo: 249.9,
     immagine: "assets/commedia.webp",
     inStock: true,
@@ -47,6 +49,7 @@ const libri = [
     id: 6,
     titolo: "Il Signore degli Anelli",
     autore: "J.R.R. Tolkien",
+    anno: 1954,
     prezzo: 329.9,
     immagine: "assets/rings.webp",
     inStock: true,
@@ -60,7 +63,7 @@ const totalPriceElement = document.getElementById("total-price");
 
 // Mostra i prodotti nella griglia
 function mostraProdotti() {
-  prodottiContainer.innerHTML = "";
+  prodottiContainer.innerHTML = "Le imperdibili occasioni di Giugno 2025";
   libri.forEach((libro) => {
     const libroHTML = `
       <div class="product-card" data-id="${libro.id}">
@@ -81,3 +84,5 @@ function mostraProdotti() {
 }
 
 mostraProdotti();
+
+// AGGIUNGI UN LIBRO AL CARRELLO
